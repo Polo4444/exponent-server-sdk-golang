@@ -118,11 +118,11 @@ func (c *PushClient) publishInternal(messages []PushMessage) ([]PushResponse, er
 		return nil, NewPushServerError("Invalid server response", resp, r, nil)
 	}
 	// Sanity check the response
-	if len(messages) != len(r.Data) {
+	/*if len(messages) != len(r.Data) {
 		message := "Mismatched response length. Expected %d receipts but only received %d"
 		errorMessage := fmt.Sprintf(message, len(messages), len(r.Data))
 		return nil, NewPushServerError(errorMessage, resp, r, nil)
-	}
+	}*/
 	// Add the original message to each response for reference
 	for i := range r.Data {
 		r.Data[i].PushMessage = messages[i]
